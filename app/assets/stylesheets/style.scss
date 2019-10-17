@@ -224,7 +224,7 @@ div.contents.row {
   .new_user{
   font-family: "游ゴシック", "YuGothic";
   }
-  div.content_post {
+  div.swiper-slide {
     @include boxBase(20px 0 ,30px);
     position: relative;
     height: 300px;
