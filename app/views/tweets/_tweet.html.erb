@@ -1,4 +1,6 @@
-<div class="swiper-container">
+
+
+<%# <div class="swiper-container">
   <div class="swiper-wrapper">
     <div class="swiper-slide"><img src="http://e-village.main.jp/gazou/image_gazou/gazou_0479.jpg" alt="Swiper01"></div>
     <div class="swiper-slide"><img src="http://travel.kmusiclife.com/wp-content/uploads/2013/08/DSC_2790.jpg" alt="Swiper02"></div>
@@ -7,8 +9,40 @@
   <div class="swiper-pagination"></div>
   <div class="swiper-button-prev"></div>
   <div class="swiper-button-next"></div>
+</div> %>
+<div class="swiper-container">
+  <div class="swiper-wrapper">
+    <div class="swiper-slide" style="background-image: url(<%= tweet.image %>);">
+      <div class="more">
+        <span><%= image_tag 'arrow_top.png' %></span>
+        <ul class="more_list">
+          <li>
+            <%= link_to "詳細", tweet_path(tweet.id), method: :get %>
+          </li>
+          <% if user_signed_in? && current_user.id == tweet.user_id %>
+            <li>
+              <%= link_to '編集', "/tweets/#{tweet.id}/edit", method: :get %>
+            </li>
+            <li>
+              <%= link_to '削除', "/tweets/#{tweet.id}", method: :delete %>
+            </li>
+          <% end %>
+        </ul>
+      </div>
+      <%= simple_format(tweet.text) %>
+      <span class="name">
+        <a href="/users/<%= tweet.user_id %>">
+          <%= tweet.user.nickname %>
+        </a>
+      </span>
+    </div>
+    </div>
+    <div class="swiper-pagination"></div>
+    <div class="swiper-button-prev"></div>
+    <div class="swiper-button-next"></div>
+  </div>
 </div>
-<script src="dist/js/swiper.js"></script>
+
 <script>
   var swiper = new Swiper('.swiper-container', {
     navigation: {
@@ -27,37 +61,3 @@
     },
   });
 </script>
-<div class="swiper-container">
-  <div class="swiper-wrapper">
-    <div class="swiper-slide"><img src="http://e-village.main.jp/gazou/image_gazou/gazou_0479.jpg" alt="Swiper01"></div>
-    <div class="swiper-slide"><img src="http://travel.kmusiclife.com/wp-content/uploads/2013/08/DSC_2790.jpg" alt="Swiper02"></div>
-    <div class="swiper-slide"><img src="https://tech-master.s3.amazonaws.com/uploads/curriculums/images/Rails1-4/sample.jpg" alt="Swiper03"></div>
-  </div>
-  <div class="swiper-pagination"></div>
-  <div class="swiper-button-prev"></div>
-  <div class="swiper-button-next"></div>
-</div>
-<div class="content_post" style="background-image: url(<%= tweet.image %>);">
-  <div class="more">
-    <span><%= image_tag 'arrow_top.png' %></span>
-    <ul class="more_list">
-      <li>
-        <%= link_to "詳細", tweet_path(tweet.id), method: :get %>
-      </li>
-      <% if user_signed_in? && current_user.id == tweet.user_id %>
-        <li>
-          <%= link_to '編集', "/tweets/#{tweet.id}/edit", method: :get %>
-        </li>
-        <li>
-          <%= link_to '削除', "/tweets/#{tweet.id}", method: :delete %>
-        </li>
-      <% end %>
-    </ul>
-  </div>
-  <%= simple_format(tweet.text) %>
-  <span class="name">
-    <a href="/users/<%= tweet.user_id %>">
-      <%= tweet.user.nickname %>
-    </a>
-  </span>
-</div>
