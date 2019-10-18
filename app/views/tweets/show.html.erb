@@ -1,49 +1,97 @@
 <div class ="contents row">
   <div class="swiper-container">
-    <div class="swiper-wrapper">
-      <div class="swiper-slide" style="background-image: url(<%= @tweet.image %>);">
-        <% if user_signed_in? && current_user.id == @tweet.user_id %>
-          <div class="more">
-            <span><%= image_tag 'arrow_top.png' %></span>
-            <ul class="more_list">
-              <li>
-                <%= link_to '編集', "/tweets/#{@tweet.id}/edit", method: :get %>
-              </li>
-              <li>
-                <%= link_to '削除', "/tweets/#{@tweet.id}", method: :delete %>
-              </li>
-            </ul>
-          </div>
-        <% end %>
+  <div class="swiper-wrapper">
+
+    <div class="swiper-slide" style="background-image: url(<%= @tweet.image %>);">
+      <div class="more">
+        <span><%= image_tag 'arrow_top.png' %></span>
+        <ul class="more_list">
+          <% if user_signed_in? && current_user.id == @tweet.user_id %>
+            <li>
+              <%= link_to '編集', "/tweets/#{@tweet.id}/edit", method: :get %>
+            </li>
+            <li>
+              <%= link_to '削除', "/tweets/#{@tweet.id}", method: :delete %>
+            </li>
+          <% end %>
+        </ul>
+      </div>
       <%= simple_format(@tweet.text) %>
       <span class="name">
-        <a href="/users/<%= @tweet.user.id %>">
+        <a href="/users/<%= @tweet.user_id %>">
           <%= @tweet.user.nickname %>
         </a>
       </span>
-      </div>
-      </div>
-    <div class="swiper-pagination"></div>
-    <div class="swiper-button-prev"></div>
-    <div class="swiper-button-next"></div>
-  </div>
-</div>
+    </div>
 
-<script>
-var swiper = new Swiper('.swiper-container', {
-  navigation: {
-    nextEl: '.swiper-button-next',
-    prevEl: '.swiper-button-prev',
-  },
-  loop: true,
-  autoplay: {
-    delay: 3000,
-    disableOnInteraction: true
-  },
-  pagination: {
-    el: '.swiper-pagination',
-    type: 'bullets',
-    clickable: true,
-  },
-});
-</script>
+    <div class="swiper-slide" style="background-image: url(<%= @tweet.image2 %>);">
+      <div class="more">
+        <span><%= image_tag 'arrow_top.png' %></span>
+        <ul class="more_list">
+          <% if user_signed_in? && current_user.id == @tweet.user_id %>
+            <li>
+              <%= link_to '編集', "/tweets/#{@tweet.id}/edit", method: :get %>
+            </li>
+            <li>
+              <%= link_to '削除', "/tweets/#{@tweet.id}", method: :delete %>
+            </li>
+          <% end %>
+        </ul>
+      </div>
+      <%= simple_format(@tweet.text) %>
+      <span class="name">
+        <a href="/users/<%= @tweet.user_id %>">
+          <%= @tweet.user.nickname %>
+        </a>
+      </span>
+    </div>
+
+    <div class="swiper-slide" style="background-image: url(<%= @tweet.image3 %>);">
+      <div class="more">
+        <span><%= image_tag 'arrow_top.png' %></span>
+        <ul class="more_list">
+          <% if user_signed_in? && current_user.id == @tweet.user_id %>
+            <li>
+              <%= link_to '編集', "/tweets/#{@tweet.id}/edit", method: :get %>
+            </li>
+            <li>
+              <%= link_to '削除', "/tweets/#{@tweet.id}", method: :delete %>
+            </li>
+          <% end %>
+        </ul>
+      </div>
+      <%= simple_format(@tweet.text) %>
+      <span class="name">
+        <a href="/users/<%= @tweet.user_id %>">
+          <%= @tweet.user.nickname %>
+        </a>
+      </span>
+    </div>
+
+  </div>
+  <div class="swiper-pagination"></div>
+  <div class="swiper-button-prev"></div>
+  <div class="swiper-button-next"></div>
+
+
+
+  <script>
+    var swiper = new Swiper('.swiper-container', {
+      navigation: {
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev',
+      },
+      loop: true,
+      autoplay: {
+        delay: 3500,
+        disableOnInteraction: true
+      },
+      pagination: {
+        el: '.swiper-pagination',
+        type: 'bullets',
+        clickable: true,
+      },
+    });
+  </script>
+
+  </div>
