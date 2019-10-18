@@ -1,5 +1,6 @@
 <div class="swiper-container">
   <div class="swiper-wrapper">
+
     <div class="swiper-slide" style="background-image: url(<%= tweet.image %>);">
       <div class="more">
         <span><%= image_tag 'arrow_top.png' %></span>
@@ -25,7 +26,7 @@
       </span>
     </div>
 
-  <div class="swiper-slide" style="background-image: url(<%= tweet.image %>);">
+    <div class="swiper-slide" style="background-image: url(<%= tweet.image2 %>);">
       <div class="more">
         <span><%= image_tag 'arrow_top.png' %></span>
         <ul class="more_list">
@@ -50,7 +51,7 @@
       </span>
     </div>
 
-    <div class="swiper-slide" style="background-image: url(<%= tweet.image %>);">
+    <div class="swiper-slide" style="background-image: url(<%= tweet.image3 %>);">
       <div class="more">
         <span><%= image_tag 'arrow_top.png' %></span>
         <ul class="more_list">
@@ -79,8 +80,8 @@
   <div class="swiper-pagination"></div>
   <div class="swiper-button-prev"></div>
   <div class="swiper-button-next"></div>
-  </div>
-</div>
+
+
 
   <script>
     var swiper = new Swiper('.swiper-container', {
@@ -100,4 +101,6 @@
       },
     });
   </script>
+
+  </div>
 

@@ -4,7 +4,9 @@
       投稿する
     </h3>
     <%= f.text_field :image, name: "image", multiple: true, placeholder: 'Image Url' %>
-    <%# <input placeholder="Image Url" type="text" name="image"> %>
+    <%= f.text_field :image2, name: "image2", multiple: true, placeholder: 'Image Url2' %>
+    <%= f.text_field :image3, name: "image3", multiple: true, placeholder: 'Image Url3' %>
+  
     <%= f.text_area :text, name: "text", placeholder: 'Text' %>
     <%= f.submit %>
   <% end %>
